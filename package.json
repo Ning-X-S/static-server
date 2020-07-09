@@ -1,20 +1,16 @@
 {
-  "name": "static-server",
-  "version": "1.2.2",
-  "description": "A minimalist web server",
-  "main": "index.js",
+  "name": "static-service",
+  "version": "2.0.0",
+  "description": "A minimalist static server",
+  "main": "server.js",
   "keywords": [
-    "web",
-    "server",
-    "webserver",
-    "static"
   ],
   "bin": {
-    "web-server": "index.js"
+    "static-server": "server.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pm2 start ./index.js --name test -i 4 -- -port 7777 -path ./test"
+    "serve": "pm2 start ./server.js --name test -i 2 -- --port 3333 --path ./dist --history --cache 86400" 
   },
   "repository": {
     "type": "git",
@@ -36,6 +32,8 @@
   },
   "dependencies": {
     "koa": "^2.11.0",
+    "koa-conditional-get": "^2.0.0",
+    "koa-etag": "^3.0.0",
     "koa-static": "^5.0.0"
   }
 }
